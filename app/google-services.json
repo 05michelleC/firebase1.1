@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "825576258255",
+    "project_id": "fusga-prueba",
+    "storage_bucket": "fusga-prueba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825576258255:android:62c9960dd9471b747dd5ba",
+        "android_client_info": {
+          "package_name": "com.example.firebase11"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825576258255-4fso625tcspq77u2s9ektr8arbpu5dl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGVToQcI0EmCzKs8hx5BGJa7dWY-fzMu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825576258255-4fso625tcspq77u2s9ektr8arbpu5dl3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

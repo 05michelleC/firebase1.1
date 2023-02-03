@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registrar">
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="130dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/button4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_pass1" />
+
+    <EditText
+        android:id="@+id/et_mail1"
+        android:layout_width="307dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="@string/mail1"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_registrar" />
+
+    <EditText
+        android:id="@+id/et_pass1"
+        android:layout_width="306dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/pass1"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_mail1" />
+
+    <TextView
+        android:id="@+id/tv_registrar"
+        android:layout_width="283dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="192dp"
+        android:text="@string/tv2"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="131dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="20dp"
+        android:onClick="Volver"
+        android:text="@string/button5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn4"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

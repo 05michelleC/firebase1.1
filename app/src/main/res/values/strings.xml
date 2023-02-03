@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- ACTIVITY MAIN -->
+    <string name="app_name">firebase1.1</string>
+    <string name="tv1">Ingresar</string>
+    <string name="mail">Correo electrónico</string>
+    <string name="pass">Contraseña</string>
+    <string name="button">Ingresar</string>
+    <string name="button2">Olvidé la contraseña</string>
+    <string name="button3">Crear cuenta</string>
+
+    <!-- ACTIVITY REGISTRAR -->
+    <string name="tv2">Registrarme</string>
+    <string name="mail1">Correo electrónico</string>
+    <string name="pass1">Contraseña</string>
+    <string name="button4">Registrar</string>
+    <string name="button5">Volver</string>
+
+    <!-- VALIDACIÓN DE CAMPOS -->
+
+
+</resources>
