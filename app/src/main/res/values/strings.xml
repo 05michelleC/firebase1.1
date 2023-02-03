@@ -15,6 +15,9 @@
     <string name="pass1">Contraseña</string>
     <string name="button4">Registrar</string>
     <string name="button5">Volver</string>
+    <string name="Mensajeinicial">Bienvenido</string>}
+    <string name="BotonCerrarSesion">Cerrar sesión</string>}
+
 
     <!-- VALIDACIÓN DE CAMPOS -->
 
