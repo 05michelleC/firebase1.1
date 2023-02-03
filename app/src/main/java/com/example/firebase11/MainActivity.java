@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText et_mail, et_pass;
     Button btn_login;
     FirebaseAuth firebaseAuth;
-    boolean sesion=false;
+    FirebaseAuth mAuth;
+    boolean sesion = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
         et_mail = findViewById(R.id.et_mail);
         et_pass = findViewById(R.id.et_pass);
-        btn_login=findViewById(R.id.btn);
-        sesion=false;
+        btn_login = findViewById(R.id.btn);
 
-
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -43,60 +44,55 @@ public class MainActivity extends AppCompatActivity {
                 String mail1 = et_mail.getText().toString();
                 String pass1 = et_pass.getText().toString();
 
-                if(mail1.equals("") && pass1.equals("") || mail1.equals("") || pass1.equals("") ){
+                if (mail1.equals("") && pass1.equals("") || mail1.equals("") || pass1.equals("")) {
                     Toast.makeText(MainActivity.this, "Completa los campos vacios", Toast.LENGTH_SHORT).show();
 
-                }else if(pass1.length() <6){
+                } else if (pass1.length() < 6) {
                     Toast.makeText(MainActivity.this, "Contraseña muy corta, 6 caracteres minimo", Toast.LENGTH_SHORT).show();
-                }else{
-                 firebaseAuth.signInWithEmailAndPassword(mail1,pass1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                     @Override
-                     public void onComplete(@NonNull Task<AuthResult> task) {
-                         if (task.isSuccessful()){
-                            irahome();
-                            sesion=true;
-                         }else {
-                             String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
-                             dameToastdeerror(errorCode);
-                         }
-                     }
-                 });
+                } else {
+                    firebaseAuth.signInWithEmailAndPassword(mail1, pass1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                irahome();
+                                sesion = true;
+
+
+                            } else {
+                                String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
+                                dameToastdeerror(errorCode);
+                            }
+                        }
+                    });
                 }
             }
         });
-
-
-        firebaseAuth=FirebaseAuth.getInstance();
-        FirebaseAuth Mauth = FirebaseAuth.getInstance();
-        FirebaseUser user= Mauth.getCurrentUser();
-
-        if(sesion){
+        if (user != null && sesion) {
             irahome();
-        }else{
-            Intent main = new Intent(this, MainActivity.class);
-            startActivity(main);
+        } else if (user != null && !sesion) {
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
         }
-
-
-
 
 
     }
 
     private void irahome() {
-        Intent intent= new Intent(MainActivity.this,LoginActivity.class);
-        intent.putExtra("mail",et_mail.getText().toString());
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.putExtra("mail", et_mail.getText().toString());
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
 
-    public void CrearCuenta(View view){
+    public void CrearCuenta(View view) {
         Intent registrar = new Intent(this, Registrar.class);
         startActivity(registrar);
 
 
     }
+
+
     public void dameToastdeerror(String error) {
 
         switch (error) {
@@ -133,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case "ERROR_REQUIRES_RECENT_LOGIN":
-                Toast.makeText(MainActivity.this,"Esta operación es sensible y requiere autenticación reciente. Inicie sesión nuevamente antes de volver a intentar esta solicitud.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Esta operación es sensible y requiere autenticación reciente. Inicie sesión nuevamente antes de volver a intentar esta solicitud.", Toast.LENGTH_LONG).show();
                 break;
 
             case "ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL":
