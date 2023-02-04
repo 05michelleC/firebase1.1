@@ -20,7 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private EditText et_mail, et_pass;
-    Button btn_login;
+    Button btn_login,ForgotPass;
+
     FirebaseAuth firebaseAuth;
     FirebaseAuth mAuth;
     boolean sesion = false;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         et_mail = findViewById(R.id.et_mail);
         et_pass = findViewById(R.id.et_pass);
         btn_login = findViewById(R.id.btn);
+        ForgotPass=findViewById(R.id.btn2);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -67,12 +69,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        if (user != null && sesion) {
+        if (user != null) {
             irahome();
-        } else if (user != null && !sesion) {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
         }
+        ForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Recuperar();
+            }
+        });
+
 
 
     }
@@ -82,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("mail", et_mail.getText().toString());
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+
     }
 
 
@@ -90,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(registrar);
 
 
+    }
+
+
+    public void Recuperar(){
+        Intent i = new Intent(this, ForgotPassword.class);
+        startActivity(i);
     }
 
 

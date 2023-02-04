@@ -17,6 +17,7 @@
     <string name="button5">Volver</string>
     <string name="Mensajeinicial">Bienvenido</string>}
     <string name="BotonCerrarSesion">Cerrar sesión</string>}
+    <string name="BotonRecuperar">Recuperar contraseña</string>}
 
 
     <!-- VALIDACIÓN DE CAMPOS -->
